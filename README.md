@@ -6,6 +6,6 @@ El mutex asegura que los hilos no interfieran entre sí, y el semáforo limita l
 ##  Variables Principales
 
 El juego mantiene varias variables globales que controlan la lógica general del sistema: número de vidas, velocidad de los obstáculos, nivel actual, cantidad de obstáculos esquivados y la lista de obstáculos activos.
-<img width="567" height="212" alt="image" src="https://github.com/user-attachments/assets/0639e53e-b6da-4886-960f-ad035b264eef" />
 
+<img width="567" height="212" alt="image" src="https://github.com/user-attachments/assets/0639e53e-b6da-4886-960f-ad035b264eef" />
 *Fragmento de las variables globales*
