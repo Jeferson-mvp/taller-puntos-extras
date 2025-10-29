@@ -9,3 +9,13 @@ El juego mantiene varias variables globales que controlan la lógica general del
 
 <img width="567" height="212" alt="image" src="https://github.com/user-attachments/assets/0639e53e-b6da-4886-960f-ad035b264eef" />
 **Fragmento de las variables globales**
+
+Estas variables son compartidas entre diferentes hilos, lo que requiere el uso de mecanismos de sincronización (como el `mutex`) para evitar conflictos de acceso.  
+Por ejemplo, `vidas` disminuye cuando el jugador colisiona con un obstáculo, y `esquivados` aumenta cuando un obstáculo sale de la pantalla sin tocar al jugador.  
+La variable `game_over` detiene todos los procesos cuando el jugador pierde todas sus vidas.
+
+
+## Movimiento del Jugador
+
+El jugador se representa mediante un rectángulo rojo dentro del juego.  
+Se controla con las flechas del teclado (`←` y `→`), lo cual le permite desplazarse lateralmente para esquivar los obstáculos.  
