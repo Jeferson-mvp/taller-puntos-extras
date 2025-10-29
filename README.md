@@ -19,3 +19,5 @@ La variable `game_over` detiene todos los procesos cuando el jugador pierde toda
 
 El jugador se representa mediante un rectángulo rojo dentro del juego.  
 Se controla con las flechas del teclado (`←` y `→`), lo cual le permite desplazarse lateralmente para esquivar los obstáculos.  
+<img width="666" height="267" alt="image" src="https://github.com/user-attachments/assets/a2a87387-b28d-49ab-94f3-4a4a7145e0e5" />
+**Fragmento del movimiento del jugador:**
