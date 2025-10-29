@@ -21,7 +21,8 @@ La variable `game_over` detiene todos los procesos cuando el jugador pierde toda
 El jugador se representa mediante un rectángulo rojo dentro del juego.  
 Se controla con las flechas del teclado (`←` y `→`), lo cual le permite desplazarse lateralmente para esquivar los obstáculos.  
 <img width="666" height="267" alt="image" src="https://github.com/user-attachments/assets/a2a87387-b28d-49ab-94f3-4a4a7145e0e5" />
-**Fragmento del movimiento del jugador**
+
+*Fragmento del movimiento del jugador*
 
 
 El método `canvas.coords()` se utiliza para obtener las coordenadas actuales del jugador, y `canvas.move()` realiza el desplazamiento.  
@@ -37,13 +38,13 @@ El bucle principal de Tkinter maneja la interfaz, mientras que los hilos secunda
 Para coordinar estos hilos y evitar errores, se emplean dos herramientas fundamentales: **el mutex** y **el semáforo**.
 
 <img width="663" height="70" alt="image" src="https://github.com/user-attachments/assets/3c3b1603-8165-48c1-b0aa-7d2151a806e5" />
-**Fragmento de inicialización de los hilos y mecanismos de concurrencia:**
+
+*Fragmento de inicialización de los hilos y mecanismos de concurrencia*
 
 El **mutex (bloqueo mutuo)** garantiza que solo un hilo acceda a un recurso compartido —como la lista de obstáculos— en un momento dado.  
 Por su parte, el **semaforo** limita la cantidad de obstáculos que pueden estar activos simultáneamente.  
 Si se llega al número máximo permitido, el hilo que intenta crear un nuevo obstáculo queda en espera hasta que otro desaparezca.
 
----
 
 ## Generación de Obstáculos (Primer Hilo)
 
@@ -52,13 +53,13 @@ Cada vez que crea un obstáculo, adquiere un permiso del semáforo para asegurar
 Durante la creación, el hilo entra en una **sección crítica** protegida por el `mutex`.
 
 <img width="908" height="263" alt="image" src="https://github.com/user-attachments/assets/17490a3a-fd9f-4d46-8b69-09f2238f5682" />
-**Fragmento del hilo generador de obstáculos:**
+
+*Fragmento del hilo generador de obstáculos*
 
 
 Dentro de esta sección crítica se crea el obstáculo gráfico y se agrega a la lista compartida `obstaculos`.  
 El uso de `with mutex:` impide que otro hilo modifique la lista al mismo tiempo, evitando errores o inconsistencias visuales.
 
----
 
 ## Movimiento y Colisiones (Segundo Hilo)
 
@@ -67,7 +68,8 @@ Cada obstáculo se desplaza hacia abajo, y se verifica constantemente si alguno 
 En caso de colisión, el jugador pierde una vida; si un obstáculo sale de la pantalla, se cuenta como esquivado.
 
 <img width="1041" height="778" alt="image" src="https://github.com/user-attachments/assets/10bbf4a9-6a2d-47f9-a995-24a47ca27259" />
-**Fragmento del hilo de movimiento y colisiones:**
+
+*Fragmento del hilo de movimiento y colisiones*
 
 Esta parte del programa también está protegida por el `mutex`, ya que accede y modifica la misma lista `obstaculos` que usa el hilo generador.  
 Además, cuando un obstáculo desaparece, se libera un permiso del semáforo (`release()`), permitiendo que se genere un nuevo obstáculo.
