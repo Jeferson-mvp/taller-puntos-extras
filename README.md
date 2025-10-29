@@ -8,7 +8,7 @@ El mutex asegura que los hilos no interfieran entre sí, y el semáforo limita l
 El juego mantiene varias variables globales que controlan la lógica general del sistema: número de vidas, velocidad de los obstáculos, nivel actual, cantidad de obstáculos esquivados y la lista de obstáculos activos.
 
 <img width="567" height="212" alt="image" src="https://github.com/user-attachments/assets/0639e53e-b6da-4886-960f-ad035b264eef" />
-_Fragmento de las variables globales_
+*Fragmento de las variables globales*
 
 Estas variables son compartidas entre diferentes hilos, lo que requiere el uso de mecanismos de sincronización (como el `mutex`) para evitar conflictos de acceso.  
 Por ejemplo, `vidas` disminuye cuando el jugador colisiona con un obstáculo, y `esquivados` aumenta cuando un obstáculo sale de la pantalla sin tocar al jugador.  
