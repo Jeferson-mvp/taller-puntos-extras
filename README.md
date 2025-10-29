@@ -59,7 +59,7 @@ El uso de `with mutex:` impide que otro hilo modifique la lista al mismo tiempo,
 
 ---
 
-## 🌀 Movimiento y Colisiones (Segundo Hilo)
+## Movimiento y Colisiones (Segundo Hilo)
 
 El segundo hilo se encarga de actualizar el movimiento de los obstáculos en pantalla.  
 Cada obstáculo se desplaza hacia abajo, y se verifica constantemente si alguno colisiona con el jugador.  
@@ -98,7 +98,7 @@ Además, con cada nuevo nivel también se incrementa el número máximo de obst�
 
 ---
 
-## 💀 Fin del Juego (Game Over)
+## Fin del Juego (Game Over)
 
 Cuando el jugador pierde sus tres vidas, el juego se detiene completamente y aparece en pantalla el mensaje **“GAME OVER”**.  
 Esto se logra estableciendo la variable `game_over` en `True`, lo que provoca que los hilos terminen sus ciclos de ejecución.
