@@ -80,8 +80,10 @@ En programación concurrente, una **sección crítica** es un bloque de código 
 En este programa, las secciones críticas aparecen cuando se crean, mueven o eliminan obstáculos del Canvas, ya que estas acciones afectan estructuras de datos compartidas.
 
 <img width="931" height="172" alt="image" src="https://github.com/user-attachments/assets/6a08faf2-a121-4048-b7ce-7803e560fcd2" />
+
 <img width="881" height="97" alt="image" src="https://github.com/user-attachments/assets/ce515d68-2747-4534-b339-e130b1a071d0" />
-**Ejemplos de sección crítica en el código:**
+
+*Ejemplos de sección crítica en el código*
 
 
 El uso del `mutex` garantiza exclusión mutua, evitando que varios hilos modifiquen el Canvas o la lista `obstaculos` de forma simultánea.  
@@ -94,12 +96,12 @@ El juego incrementa su dificultad de manera progresiva.
 Cada vez que el jugador esquiva 10 obstáculos, el nivel aumenta automáticamente, lo que se traduce en una mayor velocidad de caída y en un menor intervalo entre la aparición de nuevos obstáculos.
 
 <img width="1016" height="161" alt="image" src="https://github.com/user-attachments/assets/8ae183fb-ed46-4ea4-ac32-e4ee9c7e0764" />
-**Fragmento del código que gestiona el aumento de dificultad:**
+
+*Fragmento del código que gestiona el aumento de dificultad*
 
 
 Además, con cada nuevo nivel también se incrementa el número máximo de obstáculos activos permitidos por el semáforo, haciendo que el desafío crezca de forma constante conforme el jugador mejora su desempeño.
 
----
 
 ## Fin del Juego (Game Over)
 
@@ -107,7 +109,8 @@ Cuando el jugador pierde sus tres vidas, el juego se detiene completamente y apa
 Esto se logra estableciendo la variable `game_over` en `True`, lo que provoca que los hilos terminen sus ciclos de ejecución.
 
 <img width="1107" height="145" alt="image" src="https://github.com/user-attachments/assets/cefb13de-f780-42b0-87e7-0c04db581909" />
-**Fragmento del código del Game Over:**
+
+*Fragmento del código del Game Over*
 
 El mensaje se muestra directamente en el Canvas utilizando `canvas.create_text()`.  
 Esta condición marca el fin del juego y detiene el movimiento de todos los elementos.
